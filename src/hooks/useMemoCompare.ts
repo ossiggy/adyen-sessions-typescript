@@ -1,9 +1,10 @@
 import { useRef, useEffect } from "react";
 import { compareFormData } from "../helpers";
+import { FormDataProps } from "../types";
 
-export const useMemoCompare = (next:any) => {
+export const useMemoCompare = (next:FormDataProps) => {
 
-  const previousRef = useRef();
+  const previousRef = useRef<any>();
   const previous = previousRef.current;
 
   const isEqual = compareFormData(previous, next);

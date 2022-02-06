@@ -4,7 +4,7 @@ export type FormDataProps = {
   value: number
   currency: string
   countryCode: string
-  component: string
+  component?: string
 };
 
 export type PaymentsFormProps = {
