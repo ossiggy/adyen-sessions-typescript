@@ -33,7 +33,7 @@ const PaymentsForm = ({ options: { value, currency, countryCode, component }, on
       <FormGroup>
         <Label for="currency">Type</Label>
         <Input type="select" name="component" onChange={handleChange} selected={component}>
-          {/* TODO: Base these options off of paymentMethods response */}
+          {/* TODO: Base these options off of checkout.paymentMethodsResponse (will need to run session init on change of country/currency) */}
           <option value="dropin">Drop-in</option>
           <option value="card">Credit Cards</option>
           <option value="paypal">Pay Pal</option>
