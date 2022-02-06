@@ -1,4 +1,4 @@
-import Dropin from './Dropin/Dropin';
+import Dropin from "./Dropin/Dropin";
 import PaymentsForm from "./PaymentsForm/PaymentsForm";
 import ComponentBase from "./ComponentBase/ComponentBase";
 
