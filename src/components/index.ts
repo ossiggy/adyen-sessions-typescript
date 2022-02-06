@@ -1,9 +1,9 @@
-import Dropin from "./Dropin/Dropin";
+import Header from "./Header/Header";
 import PaymentsForm from "./PaymentsForm/PaymentsForm";
 import ComponentBase from "./ComponentBase/ComponentBase";
 
 export {
-  Dropin,
+  Header,
   PaymentsForm,
   ComponentBase
 };

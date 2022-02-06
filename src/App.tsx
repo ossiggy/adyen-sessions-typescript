@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Header } from "./components"
 import ApplicationRouter from "./AppRouter";
 
 const Application = () => {
@@ -6,12 +8,12 @@ const Application = () => {
     value: 25,
     currency: "EUR",
     countryCode: "NL",
-    component: "drop-in"
+    component: "dropin"
   });
+  const navigate = useNavigate();
   
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // TODO: submitHandler
+  const handleSubmit = () => {
+    navigate("/components/" + options.component);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,6 +25,7 @@ const Application = () => {
 
   return (
     <div id="app">
+      <Header />
       <ApplicationRouter 
         onSubmit={handleSubmit}
         onChange={handleChange}
