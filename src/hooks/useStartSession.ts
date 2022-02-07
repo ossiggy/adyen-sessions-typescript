@@ -18,7 +18,7 @@ export const useStartSession = (options: { value: number, currency: string, coun
       returnUrl: RETURN_URL,
       reference: Math.floor(Math.random() * 100000000),
       countryCode: options.countryCode
-    }
+    };
 
     const requestOptions = {
       method: 'POST',
@@ -26,7 +26,7 @@ export const useStartSession = (options: { value: number, currency: string, coun
         'Content-type': 'application/json'
       },
       body: JSON.stringify(paymentData)
-    }
+    };
 
     const startSession = async () => {
       try {
