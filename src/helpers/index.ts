@@ -1,3 +1,4 @@
+import { prepareChallengeData } from "@adyen/adyen-web/dist/types/components/ThreeDS2/components/utils";
 import { FormDataProps } from "../types";
 
 export const compareFormData = (prev: any, next: FormDataProps) => {
@@ -11,4 +12,12 @@ export const compareFormData = (prev: any, next: FormDataProps) => {
     prev.countryCode && prev.countryCode === next.countryCode;
 
   return countryCodeMatch && currencyMatch && valueMatch;
+};
+
+export const compareSessionData = (prev: any, next: { sessionId: string }) => {
+  if (!prev) {
+    return false;
+  }
+
+  return prev.sessionId && prev.sessionId === next.sessionId;
 };

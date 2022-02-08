@@ -13,7 +13,7 @@ const Application = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate("/components/" + options.component);
+    navigate(options.component);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

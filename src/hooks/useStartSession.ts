@@ -1,26 +1,38 @@
 import { useState, useEffect } from "react";
 import { useMemoCompare } from "./useMemoCompare";
-import { MERCHANT_ACCOUNT, RETURN_URL } from "../config";
+import { compareFormData } from "../helpers";
+import { MERCHANT_ACCOUNT, RETURN_URL_BASE } from "../config";
+
+type SessionConfig = {
+  merchantAccount: string;
+  amount: {
+    value: number;
+    currency: string;
+  };
+  returnUrl: string;
+  reference: string;
+  countryCode: string;
+};
 
 export const useStartSession = (options: {
   value: number;
   currency: string;
   countryCode: string;
+  component: string | undefined;
 }) => {
-  console.log("Starting session with params", options);
   const [sessionInfo, setSessionInfo] = useState<any>(null);
 
-  const opts = useMemoCompare(options);
+  const opts = useMemoCompare(options, compareFormData);
 
   useEffect(() => {
-    const paymentData = {
+    const paymentData: SessionConfig = {
       merchantAccount: MERCHANT_ACCOUNT,
       amount: {
         value: options.value * 100,
         currency: options.currency,
       },
-      returnUrl: RETURN_URL,
-      reference: Math.floor(Math.random() * 100000000),
+      returnUrl: `${RETURN_URL_BASE}/${options.component}`,
+      reference: `${Math.floor(Math.random() * 100000000)}`,
       countryCode: options.countryCode,
     };
 

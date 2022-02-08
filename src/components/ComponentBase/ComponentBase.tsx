@@ -6,9 +6,13 @@ import Component from "./Component";
 const ComponentBase = ({ value, currency, countryCode }: FormDataProps) => {
   const params = useParams();
   const component = params.component;
-  const [sessionInfo] = useStartSession({ value, currency, countryCode });
+  const [sessionInfo] = useStartSession({
+    value,
+    currency,
+    countryCode,
+    component,
+  });
   if (sessionInfo && component) {
-    console.log(sessionInfo);
     return (
       <Component
         type={component}
@@ -17,7 +21,7 @@ const ComponentBase = ({ value, currency, countryCode }: FormDataProps) => {
       />
     );
   }
-  return <div>Something is wrong here...</div>;
+  return <div>Loading...</div>;
 };
 
 export default ComponentBase;
