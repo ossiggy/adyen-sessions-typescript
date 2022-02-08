@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import { useCheckout } from "../../hooks";
 
 const Component = ({
@@ -9,7 +10,12 @@ const Component = ({
   sessionId: string;
   sessionData: string;
 }) => {
-  const [checkout] = useCheckout(sessionId, sessionData);
+  const [redirectInfo] = useSearchParams();
+  const redirectResult = {
+    redirectResult: redirectInfo.get('redirectResult'),
+    redirectSessionId: redirectInfo.get('sessionId'),
+  }
+  const [checkout] = useCheckout({sessionId, sessionData, redirectResult});
 
   if (checkout) {
     checkout.create(type).mount("#checkout");

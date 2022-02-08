@@ -20,7 +20,7 @@ const ApplicationRouter = ({
         }
       />
       <Route
-        path="/components/:component"
+        path=":component"
         element={<ComponentBase {...options} />}
       />
     </Routes>
