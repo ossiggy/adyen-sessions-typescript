@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Header } from "./components"
+import { Header } from "./components";
 import ApplicationRouter from "./AppRouter";
 
 const Application = () => {
@@ -8,25 +8,25 @@ const Application = () => {
     value: 25,
     currency: "EUR",
     countryCode: "NL",
-    component: "dropin"
+    component: "dropin",
   });
   const navigate = useNavigate();
-  
+
   const handleSubmit = () => {
     navigate("/components/" + options.component);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setOptions(prevState => ({
+    setOptions((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   return (
     <div id="app">
       <Header />
-      <ApplicationRouter 
+      <ApplicationRouter
         onSubmit={handleSubmit}
         onChange={handleChange}
         options={options}

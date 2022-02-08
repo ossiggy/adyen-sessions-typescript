@@ -1,7 +1,4 @@
-import {
-  Navbar,
-  NavbarBrand
-} from "reactstrap";
+import { Navbar, NavbarBrand } from "reactstrap";
 import "./Header.scss";
 
 import AdyenLogo from "../../assets/adyen-header-logo-green.svg";
@@ -15,7 +12,7 @@ const Header = () => {
         </NavbarBrand>
       </Navbar>
     </div>
-  )
+  );
 };
 
 export default Header;

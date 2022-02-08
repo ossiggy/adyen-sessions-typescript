@@ -1,13 +1,16 @@
 import { Route, Routes } from "react-router-dom";
-import { PaymentsFormProps } from "./types"
-import { PaymentsForm, ComponentBase} from "./components";
+import { PaymentsFormProps } from "./types";
+import { PaymentsForm, ComponentBase } from "./components";
 
-const ApplicationRouter = ({ options, onSubmit, onChange }: PaymentsFormProps) => {
-
+const ApplicationRouter = ({
+  options,
+  onSubmit,
+  onChange,
+}: PaymentsFormProps) => {
   return (
     <Routes>
-      <Route 
-        path="/" 
+      <Route
+        path="/"
         element={
           <PaymentsForm
             options={options}
@@ -18,12 +21,10 @@ const ApplicationRouter = ({ options, onSubmit, onChange }: PaymentsFormProps) =
       />
       <Route
         path="/components/:component"
-        element={
-          <ComponentBase {...options} />
-        }
+        element={<ComponentBase {...options} />}
       />
     </Routes>
-  )
+  );
 };
 
 export default ApplicationRouter;

@@ -1,10 +1,10 @@
 import React from "react";
 
 export type FormDataProps = {
-  value: number
-  currency: string
-  countryCode: string
-  component?: string
+  value: number;
+  currency: string;
+  countryCode: string;
+  component?: string;
 };
 
 export type PaymentsFormProps = {
