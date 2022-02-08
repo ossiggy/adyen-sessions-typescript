@@ -5,8 +5,8 @@ import { compareSessionData } from "../helpers";
 import { CLIENT_KEY, ENVIRONMENT } from "../config";
 
 type SessionDataConfig = {
-  id: string,
-  sessionData?: string
+  id: string;
+  sessionData?: string;
 };
 
 type CheckoutConfiguration = {
@@ -18,27 +18,30 @@ type CheckoutConfiguration = {
 };
 
 export const useCheckout = (options: {
-  sessionId: string,
-  sessionData: string,
-  redirectResult?: { redirectResult: string | null, redirectSessionId: string | null }
+  sessionId: string;
+  sessionData: string;
+  redirectResult?: {
+    redirectResult: string | null;
+    redirectSessionId: string | null;
+  };
 }) => {
   const [checkout, setCheckout] = useState<any>(null);
 
   const opts = useMemoCompare(options, compareSessionData);
-  
+
   useEffect(() => {
-    const { sessionId, sessionData, redirectResult} = options;
+    const { sessionId, sessionData, redirectResult } = options;
 
     let session: SessionDataConfig = {
-      id: sessionId
+      id: sessionId,
     };
-  
+
     if (redirectResult && redirectResult.redirectSessionId) {
-      session = { id: redirectResult.redirectSessionId};
+      session = { id: redirectResult.redirectSessionId };
     } else {
       session.sessionData = sessionData;
-    };
-    const configuration:CheckoutConfiguration = {
+    }
+    const configuration: CheckoutConfiguration = {
       environment: ENVIRONMENT,
       clientKey: CLIENT_KEY, // Public key used for client-side authentication: https://docs.adyen.com/development-resources/client-side-authentication
       session,
@@ -51,9 +54,14 @@ export const useCheckout = (options: {
     };
     const initializeCheckout = async (config: object) => {
       const component = await AdyenCheckout(config);
-      if (redirectResult && redirectResult.redirectResult && redirectResult.redirectSessionId) {
-        console.log("redirectResult found", redirectResult);
-        component.submitDetails({ details: { redirectResult: redirectResult.redirectResult } });
+      if (
+        redirectResult &&
+        redirectResult.redirectResult &&
+        redirectResult.redirectSessionId
+      ) {
+        component.submitDetails({
+          details: { redirectResult: redirectResult.redirectResult },
+        });
       }
 
       setCheckout(component);
@@ -62,6 +70,5 @@ export const useCheckout = (options: {
     initializeCheckout(configuration);
   }, [opts]);
 
-  console.log(checkout);
   return [checkout];
 };

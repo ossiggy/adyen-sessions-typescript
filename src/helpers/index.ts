@@ -17,7 +17,7 @@ export const compareFormData = (prev: any, next: FormDataProps) => {
 export const compareSessionData = (prev: any, next: { sessionId: string }) => {
   if (!prev) {
     return false;
-  };
+  }
 
   return prev.sessionId && prev.sessionId === next.sessionId;
 };

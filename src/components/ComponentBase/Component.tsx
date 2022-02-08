@@ -12,10 +12,10 @@ const Component = ({
 }) => {
   const [redirectInfo] = useSearchParams();
   const redirectResult = {
-    redirectResult: redirectInfo.get('redirectResult'),
-    redirectSessionId: redirectInfo.get('sessionId'),
-  }
-  const [checkout] = useCheckout({sessionId, sessionData, redirectResult});
+    redirectResult: redirectInfo.get("redirectResult"),
+    redirectSessionId: redirectInfo.get("sessionId"),
+  };
+  const [checkout] = useCheckout({ sessionId, sessionData, redirectResult });
 
   if (checkout) {
     checkout.create(type).mount("#checkout");

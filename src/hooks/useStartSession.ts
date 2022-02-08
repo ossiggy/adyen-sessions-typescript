@@ -6,13 +6,13 @@ import { MERCHANT_ACCOUNT, RETURN_URL_BASE } from "../config";
 type SessionConfig = {
   merchantAccount: string;
   amount: {
-    value: number,
-    currency: string
+    value: number;
+    currency: string;
   };
   returnUrl: string;
   reference: string;
   countryCode: string;
-}
+};
 
 export const useStartSession = (options: {
   value: number;
@@ -20,7 +20,6 @@ export const useStartSession = (options: {
   countryCode: string;
   component: string | undefined;
 }) => {
-  console.log("Starting session with params", options);
   const [sessionInfo, setSessionInfo] = useState<any>(null);
 
   const opts = useMemoCompare(options, compareFormData);
