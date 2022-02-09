@@ -40,7 +40,7 @@ export const useStartSession = (options: { value: number; currency: string; coun
             body: JSON.stringify(paymentData)
         };
 
-        const startSession = async () => {
+        const startSession: () => void = async () => {
             try {
                 const response = await fetch('http://localhost:8080/startSession', requestOptions);
 

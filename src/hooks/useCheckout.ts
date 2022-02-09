@@ -46,14 +46,14 @@ export const useCheckout = (options: {
             environment: ENVIRONMENT,
             clientKey: CLIENT_KEY, // Public key used for client-side authentication: https://docs.adyen.com/development-resources/client-side-authentication
             session,
-            onPaymentCompleted: (result, component) => {
+            onPaymentCompleted: (result, component): void => {
                 console.info(result, component);
             },
             onError: (error, component): void => {
                 console.error(error.name, error.message, error.stack, component);
             }
         };
-        const initializeCheckout = async (config: object) => {
+        const initializeCheckout: (config: object) => void = async config => {
             const component = await AdyenCheckout(config);
             if (redirectResult && redirectResult.redirectResult && redirectResult.redirectSessionId) {
                 component.submitDetails({
