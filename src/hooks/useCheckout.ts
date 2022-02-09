@@ -46,10 +46,10 @@ export const useCheckout = (options: {
             environment: ENVIRONMENT,
             clientKey: CLIENT_KEY, // Public key used for client-side authentication: https://docs.adyen.com/development-resources/client-side-authentication
             session,
-            onPaymentCompleted: (result, component): void => {
+            onPaymentCompleted: (result, component) => {
                 console.info(result, component);
             },
-            onError: (error, component): void => {
+            onError: (error, component) => {
                 console.error(error.name, error.message, error.stack, component);
             }
         };
