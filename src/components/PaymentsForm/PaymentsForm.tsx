@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { PaymentsFormProps } from '../../types';
 
-const PaymentsForm = ({ options: { value, currency, countryCode, component }, onSubmit, onChange }: PaymentsFormProps) => {
+export const PaymentsForm = ({ options: { value, currency, countryCode, component }, onSubmit, onChange }: PaymentsFormProps) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         onSubmit();
@@ -46,5 +46,3 @@ const PaymentsForm = ({ options: { value, currency, countryCode, component }, on
         </Form>
     );
 };
-
-export default PaymentsForm;

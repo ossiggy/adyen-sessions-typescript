@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useMemoCompare } from './useMemoCompare';
 import { compareFormData } from '../helpers';
-import { MERCHANT_ACCOUNT, RETURN_URL_BASE } from '../config';
+import { MERCHANT_ACCOUNT, RETURN_URL_BASE } from '../config/envConfig';
 
 type SessionConfig = {
     merchantAccount: string;

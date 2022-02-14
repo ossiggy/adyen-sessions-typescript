@@ -2,7 +2,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const request = require('request-promise');
-const { PORT, API_KEY } = require('./config');
+const { PORT, API_KEY } = require('./config/serverConfig');
 
 const app = express();
 

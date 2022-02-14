@@ -3,7 +3,7 @@ import './Header.scss';
 
 import AdyenLogo from '../../assets/adyen-header-logo-green.svg';
 
-const Header = () => {
+export const Header = () => {
     return (
         <div id="header">
             <Navbar color="dark" dark expand="md">
@@ -14,5 +14,3 @@ const Header = () => {
         </div>
     );
 };
-
-export default Header;

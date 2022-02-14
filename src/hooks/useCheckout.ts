@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import AdyenCheckout from '@adyen/adyen-web';
 import { useMemoCompare } from './useMemoCompare';
 import { compareSessionData } from '../helpers';
-import { CLIENT_KEY, ENVIRONMENT } from '../config';
+import { CLIENT_KEY, ENVIRONMENT } from '../config/envConfig';
 
 type SessionDataConfig = {
     id: string;

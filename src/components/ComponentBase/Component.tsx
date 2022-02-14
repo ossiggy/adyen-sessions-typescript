@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { useCheckout } from '../../hooks';
 
-const Component = ({ type, sessionId, sessionData }: { type: string; sessionId: string; sessionData: string }) => {
+export const Component = ({ type, sessionId, sessionData }: { type: string; sessionId: string; sessionData: string }) => {
     const [redirectInfo] = useSearchParams();
     const redirectResult = {
         redirectResult: redirectInfo.get('redirectResult'),
@@ -14,5 +14,3 @@ const Component = ({ type, sessionId, sessionData }: { type: string; sessionId: 
     }
     return <div id="checkout"></div>;
 };
-
-export default Component;
